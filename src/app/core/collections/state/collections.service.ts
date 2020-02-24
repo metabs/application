@@ -16,8 +16,11 @@ export class CollectionsService {
   }
 
   get() {
-    return this.http.get<Collection[]>(environment.api.collections).pipe(tap(entities => {
-      this.collectionsStore.set(entities.map(createCollection));
+    return this.http.get<Collection[]>(environment.api.collections).pipe(tap((entities: any) => {
+      this.collectionsStore.set(entities.map(i => createCollection({
+        ...i,
+        name: i.title
+      })));
     }));
   }
 
