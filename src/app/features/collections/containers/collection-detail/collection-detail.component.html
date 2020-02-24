@@ -1,1 +1,3 @@
-<h1>Collection {{collectionId$ | async}}</h1>
+<ng-container *ngIf="(collectionsQuery.selectCollectionByParams$ | async) as collection">
+  <h1>{{collection.id}} - {{collection.title}}</h1>
+</ng-container>
