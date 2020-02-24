@@ -12,7 +12,8 @@
     "create:store:feature": "ng g @datorama/akita:feature",
     "create:store:entity": "ng g @datorama/akita:aes",
     "create:query": "ng g @datorama/akita:aq",
-    "create:query:entity": "ng g @datorama/akita:aeq"
+    "create:query:entity": "ng g @datorama/akita:aeq",
+    "create:model": "ng g @datorama/akita:am"
   },
   "private": true,
   "dependencies": {
