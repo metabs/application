@@ -1,0 +1,16 @@
+@import '~reset-css/sass/reset';
+@import "./variables";
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  line-height: var(--font-line-height-md);
+  color: var(--font-color-primary-500);
+}
