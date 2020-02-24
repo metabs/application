@@ -173,5 +173,8 @@
         "encapsulation": "None"
       }
     }
+  },
+  "cli": {
+    "defaultCollection": "@datorama/akita"
   }
 }
