@@ -1,5 +1,5 @@
-export interface Tab {
-  id: number | string;
+export interface ApiTab {
+  id: string;
   title: string;
   description: string;
   icon: string;
@@ -8,7 +8,17 @@ export interface Tab {
   updated: string;
 }
 
-export function createTab(params: Partial<Tab>) {
+export interface Tab {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  link: string;
+  created: string;
+  updated: string;
+}
+
+export function createTab(params: Partial<Tab | ApiTab>) {
   return {
     id: params.id,
     title: params.title,

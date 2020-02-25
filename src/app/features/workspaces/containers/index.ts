@@ -1,1 +1,1 @@
-export * from './worspace-detail/worspace-detail.component';
+export * from './workspace-detail/workspace-detail.component';

@@ -1,21 +1,29 @@
-import { Injectable } from '@angular/core';
-import { ID } from '@datorama/akita';
-import { HttpClient } from '@angular/common/http';
-import { WorkspacesStore } from './workspaces.store';
-import { Workspace } from './workspace.model';
-import { tap } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {ID} from '@datorama/akita';
+import {HttpClient} from '@angular/common/http';
+import {WorkspacesStore} from './workspaces.store';
+import {ApiWorkspace, createWorkspace, Workspace} from './workspace.model';
+import {map} from 'rxjs/operators';
+import {from, of} from 'rxjs';
+import mock from '../workspaces.mock';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class WorkspacesService {
 
-  constructor(private workspacesStore: WorkspacesStore,
-              private http: HttpClient) {
+  constructor(
+    private workspacesStore: WorkspacesStore,
+    private http: HttpClient,
+  ) {
   }
 
   get() {
-    return this.http.get<Workspace[]>('https://api.com').pipe(tap(entities => {
-      this.workspacesStore.set(entities);
-    }));
+    return from(of(mock as ApiWorkspace[])).pipe(
+      map(entities => {
+        const workspaces = entities.map(createWorkspace);
+        this.workspacesStore.set(workspaces);
+        return workspaces;
+      })
+    );
   }
 
   add(workspace: Workspace) {
