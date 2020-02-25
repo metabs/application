@@ -10,13 +10,19 @@
   --gap-lg: 16px;
   --gap-xl: 24px;
 
+  --border-radius: 3px;
+
   --button-gap: var(--gap-md);
+  --button-size: var(--bar-size-sm);
+  --button-radius: var(--border-radius);
+  --button-text-transform: uppercase;
+
+  --main-gap: var(--gap-lg);
   --header-shadow: 0 0.125rem 1rem rgba(183, 183, 206, 0.2);
   --tab-shadow: 0 0.125rem 1rem rgba(183, 183, 206, 0.2);
 
+  --bar-size-sm: 44px;
   --bar-size-md: 56px;
-
-  --border-radius: 3px;
 
   --color-primary-50: #F4F4FF;
   --color-primary-100: #E8EFFF;

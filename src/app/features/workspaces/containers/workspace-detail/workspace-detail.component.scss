@@ -1,36 +1,4 @@
 app-workspace-detail {
   display: flex;
   flex-direction: column;
-
-  .collection {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: var(--gap-xl);
-    margin-bottom: var(--gap-xl);
-    border-bottom: 1px solid red;
-    &:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-  }
-
-  .tabs {
-    display: flex;
-  }
-
-  .tab {
-    display: flex;
-    flex-shrink: 0;
-    flex-direction: column;
-    padding: var(--gap-md);
-    margin: var(--gap-sm);
-    border-radius: var(--border-radius);
-    box-shadow: var(--tab-shadow);
-    &:first-child {
-      margin-left: 0;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-  }
 }

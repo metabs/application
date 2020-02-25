@@ -1,6 +1,16 @@
 cmp-button {
   display: inline-flex;
-  padding: var(--button-gap);
   outline: none;
-  cursor: pointer;
+  border-radius: var(--button-radius);
+  overflow: hidden;
+  text-transform: var(--button-text-transform);
+
+  .cmp-button {
+    display: flex;
+    align-items: center;
+    padding: var(--button-gap);
+    height: var(--button-size);
+    outline: none;
+    cursor: pointer;
+  }
 }

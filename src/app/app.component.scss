@@ -11,9 +11,19 @@ app-root {
     padding: 0 calc(var(--gap-lg) - var(--button-gap));
     background-color: var(--color-neutral-900);
     box-shadow: var(--header-shadow);
+
+    cmp-button {
+      --button-size: var(--bar-size-md);
+      --button-radius: 0;
+      --button-text-transform: none;
+
+      &.nav__active {
+        box-shadow: inset 0 -2px 0 0 var(--color-primary-500);
+      }
+    }
   }
 
   main {
-    padding: var(--gap-lg);
+    padding: var(--main-gap);
   }
 }

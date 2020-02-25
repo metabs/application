@@ -1,0 +1,16 @@
+app-collection {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--gap-xl);
+  margin-bottom: var(--gap-xl);
+  border-bottom: 1px solid var(--color-primary-500);
+
+  &:last-of-type {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .collection__content {
+    display: flex;
+  }
+}

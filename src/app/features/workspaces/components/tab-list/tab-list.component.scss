@@ -1,0 +1,6 @@
+app-tab-list {
+  display: flex;
+  overflow: auto;
+  padding: 0 var(--main-gap);
+  margin: 0 calc(-1 * var(--main-gap));
+}

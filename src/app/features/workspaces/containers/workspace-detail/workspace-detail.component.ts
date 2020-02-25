@@ -1,6 +1,8 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {WorkspacesQuery, WorkspacesService} from '@app/core/workspaces';
+import {Collection, Tab, WorkspacesQuery, WorkspacesService} from '@app/core/workspaces';
+import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'app-workspace-detail',
   templateUrl: './workspace-detail.component.html',
@@ -16,7 +18,15 @@ export class WorkspaceDetailComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
-    this.workspacesService.get().subscribe();
+  public ngOnInit(): void {
+    this.workspacesService.get()
+      .pipe(
+        untilDestroyed(this),
+      )
+      .subscribe();
+  }
+
+  public trackById(index: number, item: Collection): string {
+    return item.id;
   }
 }

@@ -1,6 +1,8 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {WorkspacesQuery, WorkspacesService} from '@app/core/workspaces';
+import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +15,11 @@ export class AppComponent {
     public readonly workspacesQuery: WorkspacesQuery,
     private readonly workspacesService: WorkspacesService
   ) {
-    this.workspacesService.get().subscribe();
+    this.workspacesService.get()
+      .pipe(
+        untilDestroyed(this),
+      )
+      .subscribe();
   }
 
 }
