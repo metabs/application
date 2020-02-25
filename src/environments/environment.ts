@@ -7,7 +7,7 @@ const baseUrl = 'https://jsonplaceholder.typicode.com';
 export const environment = {
   production: false,
   api: {
-    collections: `${baseUrl}/albums`,
+    workspaces: `${baseUrl}/albums`,
   }
 };
 
