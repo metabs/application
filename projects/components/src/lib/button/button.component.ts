@@ -1,5 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {MatRipple} from '@angular/material/core';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'cmp-button',
@@ -8,12 +7,5 @@ import {MatRipple} from '@angular/material/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ButtonComponent implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
+export class ButtonComponent {
 }
