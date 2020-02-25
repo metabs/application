@@ -1,6 +1,10 @@
 <nav>
-  <a routerLink="workspaces/1">workspace 1</a>
-  <a routerLink="workspaces/2">workspace 2</a>
+  <ng-container *ngIf="(workspacesQuery.selectAll() | async) as workspaces">
+    <a
+      *ngFor="let workspace of workspaces"
+      [routerLink]="['workspaces', workspace.id]"
+    >{{workspace.name}}</a>
+  </ng-container>
 </nav>
 <main>
   <router-outlet></router-outlet>

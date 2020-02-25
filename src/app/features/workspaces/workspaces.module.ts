@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { WorkspacesRoutingModule } from './workspaces-routing.module';
-import { WorspaceDetailComponent } from './containers/worspace-detail/worspace-detail.component';
+import { WorkspaceDetailComponent } from './containers/workspace-detail/workspace-detail.component';
 
 
 @NgModule({
-  declarations: [WorspaceDetailComponent],
+  declarations: [WorkspaceDetailComponent],
   imports: [
     CommonModule,
     WorkspacesRoutingModule
