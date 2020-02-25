@@ -8,12 +8,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "start:components": "ng build components",
+    "watch:components": "npm run start:components -- --watch",
     "create:store": "ng g @datorama/akita:as",
     "create:store:feature": "ng g @datorama/akita:feature",
     "create:store:entity": "ng g @datorama/akita:aes",
     "create:query": "ng g @datorama/akita:aq",
     "create:query:entity": "ng g @datorama/akita:aeq",
-    "create:model": "ng g @datorama/akita:am"
+    "create:model": "ng g @datorama/akita:am",
+    "create:component": "ng g c --project=components"
   },
   "private": true,
   "dependencies": {

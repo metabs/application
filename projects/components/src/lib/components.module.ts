@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { ComponentsComponent } from './components.component';
-
+import {NgModule} from '@angular/core';
+import {ButtonComponent} from './button/button.component';
 
 
 @NgModule({
-  declarations: [ComponentsComponent],
-  imports: [
-  ],
-  exports: [ComponentsComponent]
+  declarations: [ButtonComponent],
+  imports: [],
+  exports: [ButtonComponent]
 })
-export class ComponentsModule { }
+export class ComponentsModule {
+}

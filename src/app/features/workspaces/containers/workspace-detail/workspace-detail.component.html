@@ -1,3 +1,14 @@
 <ng-container *ngIf="(workspacesQuery.selectWorkspaceByRouterParams$ | async) as workspace">
   <h1>{{workspace.name}}</h1>
+
+  <div class="collection" *ngFor="let collection of workspace.collections">
+    {{collection.name}}
+
+    <ul class="tabs">
+      <li class="tab" *ngFor="let tab of collection.tabs">
+        <div>{{tab.title}}</div>
+        <div>{{tab.description}}</div>
+      </li>
+    </ul>
+  </div>
 </ng-container>

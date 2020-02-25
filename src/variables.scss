@@ -3,4 +3,35 @@
   --font-size-md: 14px;
   --font-line-height-md: 1.5;
   --font-color-primary-500: #24292e;
+
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 12px;
+  --gap-lg: 16px;
+  --gap-xl: 24px;
+
+  --button-gap: var(--gap-md);
+  --header-shadow: 0 0.125rem 1rem rgba(183, 183, 206, 0.2);
+  --tab-shadow: 0 0.125rem 1rem rgba(183, 183, 206, 0.2);
+
+  --bar-size-md: 56px;
+
+  --border-radius: 3px;
+
+  --color-primary-50: #F4F4FF;
+  --color-primary-100: #E8EFFF;
+  --color-primary-200: #E2EBFF;
+  --color-primary-500: #5569FE;
+  --color-primary-600: #5569fe4d;
+  --color-primary-700: #292929;
+  --color-neutral-500: #9F9F9E;
+  --color-neutral-700: #D8D8D8;
+  --color-neutral-800: #f5f5f5;
+  --color-neutral-900: #FFFFFF;
+  --color-accent-danger: #FF004C;
+
+  --input-height: 44px;
+  --input-padding: var(--gap-md);
+  --input-disabled-color: var(--color-neutral-700);
+  --input-disabled-opacity: .65;
 }

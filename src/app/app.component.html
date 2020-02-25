@@ -1,11 +1,18 @@
-<nav>
-  <ng-container *ngIf="(workspacesQuery.selectAll() | async) as workspaces">
-    <a
-      *ngFor="let workspace of workspaces"
-      [routerLink]="['workspaces', workspace.id]"
-    >{{workspace.name}}</a>
-  </ng-container>
-</nav>
+<header>
+  <section *ngIf="(workspacesQuery.selectAll() | async) as workspaces">
+    <nav>
+      <cmp-button
+        *ngFor="let workspace of workspaces"
+        [routerLink]="['workspaces', workspace.id]"
+      >{{workspace.name}}
+      </cmp-button>
+      <cmp-button>+</cmp-button>
+    </nav>
+  </section>
+  <section>
+    <cmp-button>user</cmp-button>
+  </section>
+</header>
 <main>
   <router-outlet></router-outlet>
 </main>
