@@ -2,4 +2,18 @@ app-root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--bar-size-md);
+    padding: 0 calc(var(--gap-lg) - var(--button-gap));
+    background-color: var(--color-neutral-900);
+    box-shadow: var(--header-shadow);
+  }
+
+  main {
+    padding: var(--gap-lg);
+  }
 }

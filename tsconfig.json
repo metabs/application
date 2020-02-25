@@ -20,7 +20,6 @@
     ],
     "paths": {
       "components": [
-        "dist/components/components",
         "dist/components"
       ],
       "@app/env": [
