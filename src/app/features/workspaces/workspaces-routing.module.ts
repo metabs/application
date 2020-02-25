@@ -1,16 +1,15 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {CollectionDetailComponent} from './containers';
-
+import {WorspaceDetailComponent} from './containers';
 
 const routes: Routes = [{
-  path: ':collectionId',
-  component: CollectionDetailComponent,
+  path: ':workspaceId',
+  component: WorspaceDetailComponent,
 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CollectionsRoutingModule {
+export class WorkspacesRoutingModule {
 }
