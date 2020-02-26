@@ -7,13 +7,13 @@ interface Tab {
 }
 
 @Component({
-  selector: 'cmp-window-tab-list',
-  templateUrl: './window-tab-list.component.html',
-  styleUrls: ['./window-tab-list.component.scss'],
+  selector: 'cmp-browser-tab-list',
+  templateUrl: './browser-tab-list.component.html',
+  styleUrls: ['./browser-tab-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class WindowTabListComponent {
+export class BrowserTabListComponent {
   @Input() tabs: Tab[];
   @Output() remove = new EventEmitter<Tab>();
 

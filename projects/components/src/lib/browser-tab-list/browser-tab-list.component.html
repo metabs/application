@@ -1,6 +1,6 @@
-<cmp-window-tab
+<cmp-browser-tab
   *ngFor="let tab of tabs; trackBy: trackById"
   [title]="tab.title"
   [image]="tab.favIconUrl"
   (remove)="remove.emit(tab)"
-></cmp-window-tab>
+></cmp-browser-tab>
