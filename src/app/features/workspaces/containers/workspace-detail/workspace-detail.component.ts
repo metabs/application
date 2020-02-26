@@ -26,7 +26,7 @@ export class WorkspaceDetailComponent implements OnInit {
       .subscribe();
   }
 
-  public trackById(index: number, item: Collection): string {
+  public trackById(index: number, item: Collection | Tab): string {
     return item.id;
   }
 }

@@ -1,10 +1,4 @@
-import {Component, ChangeDetectionStrategy, ViewEncapsulation, Input, Output, EventEmitter} from '@angular/core';
-
-interface Tab {
-  id: number;
-  favIconUrl: string;
-  title: string;
-}
+import {Component, ChangeDetectionStrategy, ViewEncapsulation, Input, HostBinding} from '@angular/core';
 
 @Component({
   selector: 'cmp-browser-tab-list',
@@ -14,10 +8,13 @@ interface Tab {
   encapsulation: ViewEncapsulation.None,
 })
 export class BrowserTabListComponent {
-  @Input() tabs: Tab[];
-  @Output() remove = new EventEmitter<Tab>();
+  @Input() type: 'column' | 'row' = 'column';
 
-  public trackById(index: number, item: Tab) {
-    return item.id;
+  @HostBinding('class.cmp-browser-tab-list--column') get getColumnClass() {
+    return this.type === 'column';
+  }
+
+  @HostBinding('class.cmp-browser-tab-list--row') get getRowClass() {
+    return this.type === 'row';
   }
 }

@@ -1,7 +1,14 @@
 cmp-browser-tab-list {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: var(--gap-md);
-  overflow: auto;
+  width: 100%;
+
+  &.cmp-browser-tab-list--column {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &.cmp-browser-tab-list--row {
+    margin: calc(-1 * var(--tab-space));
+    flex-wrap: wrap;
+  }
 }

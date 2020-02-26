@@ -1,17 +1,10 @@
 app-tab {
   display: flex;
   flex-shrink: 0;
+  width: 200px;
+  height: 100px;
   flex-direction: column;
   padding: var(--gap-md);
-  margin: var(--gap-sm);
   border-radius: var(--border-radius);
   box-shadow: var(--tab-shadow);
-
-  &:first-of-type {
-    margin-left: 0;
-  }
-
-  &:last-of-type {
-    margin-right: 0;
-  }
 }

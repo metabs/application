@@ -27,20 +27,17 @@ app-root {
 
   main {
     padding: var(--main-gap);
+    width: var(--main-width);
   }
 
   aside {
     position: fixed;
     top: 0;
     right: 0;
-    width: 250px;
+    width: var(--aside-width);
     height: 100vh;
     background-color: white;
     padding: calc(var(--bar-size-md) + var(--gap-md)) var(--gap-md) var(--gap-md);
     box-shadow: var(--header-shadow);
-
-    cmp-browser-tab-list {
-      margin: calc(-1 * var(--gap-md));
-    }
   }
 }

@@ -1,5 +1,8 @@
-<img [src]="image" [alt]="">
-<div>{{title}}</div>
-<cmp-button type="mini-fab" (click)="remove.emit(id)">
+<div class="cmp-browser-tab__primary-info">
+  <img class="cmp-browser-tab__image" [src]="image" [alt]="">
+  <div class="cmp-browser-tab__title">{{title}}</div>
+</div>
+<div class="cmp-browser-tab__description" *ngIf="!isTypeMinimal">{{description || title}}</div>
+<cmp-button *ngIf="isTypeMinimal" type="mini-fab" (click)="remove.emit()">
   <cmp-icon>close</cmp-icon>
 </cmp-button>

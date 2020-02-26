@@ -18,31 +18,36 @@ export class BrowserTabsService {
   }
 
   public listenTabsChanges() {
-    // @ts-ignore
-    chrome.windows.getAll({populate: true}, (windowList: chrome.windows.Window[]) => {
-      const tabs = [] as BrowserTab[];
-      for (const window of windowList) {
-        for (const tab of window.tabs) {
-          tabs.push(tab);
+    try {
+
+
+      // @ts-ignore
+      chrome.windows.getAll({populate: true}, (windowList: chrome.windows.Window[]) => {
+        const tabs = [] as BrowserTab[];
+        for (const window of windowList) {
+          for (const tab of window.tabs) {
+            tabs.push(tab);
+          }
         }
-      }
-      this.ngZone.run(() => {
-        this.browserTabsStore.set(tabs);
-      });
-    });
-    // @ts-ignore
-    chrome.tabs.onUpdated.addListener((tabId: number, changeInfo: chrome.tabs.TabChangeInfo, tab: chrome.tabs.Tab) => {
-      if (tab.status === 'complete') {
         this.ngZone.run(() => {
-          this.browserTabsStore.upsert(tabId, tab);
+          this.browserTabsStore.set(tabs);
         });
-      }
-    });
-    // @ts-ignore
-    chrome.tabs.onRemoved.addListener(id => {
-      this.ngZone.run(() => {
-        this.browserTabsStore.remove(id);
       });
-    });
+      // @ts-ignore
+      chrome.tabs.onUpdated.addListener((tabId: number, changeInfo: chrome.tabs.TabChangeInfo, tab: chrome.tabs.Tab) => {
+        if (tab.status === 'complete') {
+          this.ngZone.run(() => {
+            this.browserTabsStore.upsert(tabId, tab);
+          });
+        }
+      });
+      // @ts-ignore
+      chrome.tabs.onRemoved.addListener(id => {
+        this.ngZone.run(() => {
+          this.browserTabsStore.remove(id);
+        });
+      });
+    } catch (e) {
+    }
   }
 }

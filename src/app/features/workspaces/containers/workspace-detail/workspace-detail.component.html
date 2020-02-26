@@ -2,6 +2,14 @@
   <app-collection
     *ngFor="let collection of workspace.collections; trackBy: trackById"
     [name]="collection.name">
-    <app-tab-list [tabs]="collection.tabs"></app-tab-list>
+    <cmp-browser-tab-list type="row">
+      <cmp-browser-tab
+        *ngFor="let tab of collection.tabs; trackBy: trackById"
+        type="summary"
+        [title]="tab.title"
+        [description]="tab.description"
+        [image]="'https://github.githubassets.com/favicon.ico'"
+      ></cmp-browser-tab>
+    </cmp-browser-tab-list>
   </app-collection>
 </ng-container>

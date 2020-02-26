@@ -1,18 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {SharedModule} from '@app/shared';
 
-import { WorkspacesRoutingModule } from './workspaces-routing.module';
-import { WorkspaceDetailComponent } from './containers/workspace-detail/workspace-detail.component';
-import { CollectionComponent } from './components/collection/collection.component';
-import { TabComponent } from './components/tab/tab.component';
-import { TabListComponent } from './components/tab-list/tab-list.component';
-
+import {WorkspacesRoutingModule} from './workspaces-routing.module';
+import {WorkspaceDetailComponent} from './containers';
+import {CollectionComponent} from './components';
 
 @NgModule({
-  declarations: [WorkspaceDetailComponent, CollectionComponent, TabComponent, TabListComponent],
+  declarations: [WorkspaceDetailComponent, CollectionComponent],
   imports: [
-    CommonModule,
-    WorkspacesRoutingModule
+    SharedModule,
+    WorkspacesRoutingModule,
   ]
 })
-export class WorkspacesModule { }
+export class WorkspacesModule {
+}

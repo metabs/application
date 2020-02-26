@@ -29,8 +29,12 @@ export class AppComponent {
     this.browserTabsService.listenTabsChanges();
   }
 
-  public onRemoveTab(tab: BrowserTab) {
-    this.browserTabsService.remove(tab.id);
+  public onRemoveTab(id: string | number) {
+    debugger;
+    this.browserTabsService.remove(id);
   }
 
+  public trackById(index: number, item: BrowserTab) {
+    return item.id;
+  }
 }

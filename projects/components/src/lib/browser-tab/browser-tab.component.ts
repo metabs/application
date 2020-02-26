@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'cmp-browser-tab',
@@ -8,8 +8,20 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEnc
   encapsulation: ViewEncapsulation.None,
 })
 export class BrowserTabComponent {
-  @Input() id: string;
   @Input() image: string;
   @Input() title: string;
-  @Output() remove = new EventEmitter<string>();
+  @Input() description: string;
+  @Input() type: 'summary' | 'minimal' = 'minimal';
+  @Output() remove = new EventEmitter<void>();
+
+  public isTypeMinimal: boolean;
+
+  @HostBinding('class.cmp-browser-tab--minimal') get getMinimalClass() {
+    this.isTypeMinimal = this.type === 'minimal';
+    return this.isTypeMinimal;
+  }
+
+  @HostBinding('class.cmp-browser-tab--summary') get getSummaryClass() {
+    return this.type === 'summary';
+  }
 }

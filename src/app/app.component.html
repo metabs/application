@@ -21,5 +21,12 @@
 
 <aside *ngIf="(browserTabsQuery.selectAll() | async) as browserTabs">
   <h3>Open Tabs</h3>
-  <cmp-browser-tab-list [tabs]="browserTabs" (remove)="onRemoveTab($event)"></cmp-browser-tab-list>
+  <cmp-browser-tab-list>
+    <cmp-browser-tab
+      *ngFor="let tab of browserTabs; trackBy: trackById"
+      [image]="tab.favIconUrl"
+      [title]="tab.title"
+      (remove)="onRemoveTab(tab.id)">
+    </cmp-browser-tab>
+  </cmp-browser-tab-list>
 </aside>

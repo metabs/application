@@ -1,18 +1,42 @@
 cmp-browser-tab {
   cursor: default;
   position: relative;
-  margin-bottom: var(--gap-md);
+  margin: var(--tab-space);
   display: flex;
-  align-items: center;
-  background-color: var(--color-primary-50);
-  padding: var(--gap-sm);
+  flex-direction: column;
+  padding: var(--tab-gap);
   border-radius: var(--border-radius);
+
+  .cmp-browser-tab {
+    &__primary-info {
+      display: flex;
+      align-items: center;
+    }
+
+    &__image {
+      width: 16px;
+      margin-right: var(--tab-gap);
+    }
+
+    &__title, &__description {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &__description {
+      font-size: var(--font-size-sm);
+      margin-top: auto;
+      padding-top: var(--tab-gap);
+      border-top: 1px solid var(--color-primary-100);
+    }
+  }
+}
+
+cmp-browser-tab.cmp-browser-tab--minimal {
+  background-color: var(--color-primary-50);
   border: 1px solid var(--color-primary-50);
   transition: all .3s ease;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
 
   &:hover {
     border-color: var(--color-primary-100);
@@ -21,17 +45,6 @@ cmp-browser-tab {
     cmp-button {
       opacity: 1;
     }
-  }
-
-  img {
-    width: 16px;
-    margin-right: var(--gap-sm);
-  }
-
-  div {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
   }
 
   cmp-button {
@@ -43,6 +56,20 @@ cmp-browser-tab {
     transition: opacity .3s ease;
     will-change: opacity;
     background-color: var(--color-neutral-0);
-    color: red
+    color: red;
+  }
+}
+
+cmp-browser-tab.cmp-browser-tab--summary {
+  --tab-gap: var(--gap-md);
+
+  width: 200px;
+  height: 100px;
+  box-shadow: var(--header-shadow);
+
+  .cmp-browser-tab {
+    &__image {
+      width: 20px;
+    }
   }
 }
