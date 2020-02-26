@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {WorkspacesQuery, WorkspacesService} from '@app/core/workspaces';
 import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
+import {BrowserTab, BrowserTabsQuery, BrowserTabsService} from '@app/core/browser-tabs';
 
 @UntilDestroy()
 @Component({
@@ -12,14 +13,24 @@ import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
 export class AppComponent {
 
   constructor(
+    public readonly browserTabsQuery: BrowserTabsQuery,
+    private readonly browserTabsService: BrowserTabsService,
     public readonly workspacesQuery: WorkspacesQuery,
-    private readonly workspacesService: WorkspacesService
+    private readonly workspacesService: WorkspacesService,
   ) {
     this.workspacesService.get()
       .pipe(
         untilDestroyed(this),
       )
       .subscribe();
+
+    this.browserTabsQuery.selectAll().subscribe(console.log);
+
+    this.browserTabsService.listenTabsChanges();
+  }
+
+  public onRemoveTab(tab: BrowserTab) {
+    this.browserTabsService.remove(tab.id);
   }
 
 }

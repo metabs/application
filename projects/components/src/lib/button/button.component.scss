@@ -13,4 +13,29 @@ cmp-button {
     outline: none;
     cursor: pointer;
   }
+
+  &.cmp-button--fab {
+    border-radius: 50%;
+
+    .cmp-button {
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: var(--button-size);
+    }
+  }
+
+  &.cmp-button--mini-fab {
+    border-radius: 50%;
+
+    .cmp-button {
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: calc(var(--button-size) / 1.6);
+      height: calc(var(--button-size) / 1.6);
+    }
+  }
 }

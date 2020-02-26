@@ -9,6 +9,7 @@ import {AppComponent} from './app.component';
 import {AkitaNgDevtools} from '@datorama/akita-ngdevtools';
 import {AkitaNgRouterStoreModule} from '@datorama/akita-ng-router-store';
 import {environment} from '@app/env';
+import {ComponentsModule} from 'components';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {environment} from '@app/env';
     SharedModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

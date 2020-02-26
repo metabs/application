@@ -1,0 +1,7 @@
+cmp-window-tab-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--gap-md);
+  overflow: auto;
+}

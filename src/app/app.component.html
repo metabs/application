@@ -18,3 +18,8 @@
 <main>
   <router-outlet></router-outlet>
 </main>
+
+<aside *ngIf="(browserTabsQuery.selectAll() | async) as browserTabs">
+  <h3>Open Tabs</h3>
+  <cmp-window-tab-list [tabs]="browserTabs" (remove)="onRemoveTab($event)"></cmp-window-tab-list>
+</aside>
