@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {ID} from '@datorama/akita';
 import {HttpClient} from '@angular/common/http';
 import {WorkspacesStore} from './workspaces.store';
 import {ApiWorkspace, createWorkspace, Workspace} from './workspace.model';
@@ -27,12 +26,8 @@ export class WorkspacesService {
     );
   }
 
-  add(workspace: Workspace) {
-    this.workspacesStore.add(workspace);
-  }
-
-  remove(id: ID) {
-    this.workspacesStore.remove(id);
+  public createWorkspace() {
+    this.workspacesStore.add(createWorkspace({name: 'Untitled Workspace'}));
   }
 
   public createCollection(workspace) {

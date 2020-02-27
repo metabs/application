@@ -1,4 +1,5 @@
 import {ApiCollection, Collection, createCollection} from './collection.model';
+import {uuid} from '../../uuid';
 
 export interface ApiWorkspace {
   id: string;
@@ -20,7 +21,7 @@ export interface Workspace {
 
 export function createWorkspace(params: Partial<Workspace | ApiWorkspace>) {
   return {
-    id: params.id,
+    id: params.id || uuid(),
     name: params.name,
     customerId: (params as Workspace).customerId || (params as ApiWorkspace).customer_id,
     collections: (params.collections || []).map(createCollection),

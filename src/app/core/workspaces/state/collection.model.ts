@@ -1,4 +1,5 @@
 import {ApiTab, createTab, Tab} from './tab.model';
+import {uuid} from '../../uuid';
 
 export interface ApiCollection {
   id: string;
@@ -18,7 +19,7 @@ export interface Collection {
 
 export function createCollection(params: Partial<Collection | ApiCollection>) {
   return {
-    id: params.id,
+    id: params.id || uuid(),
     name: params.name,
     tabs: (params.tabs || []).map(createTab),
     created: params.created,

@@ -16,7 +16,7 @@ export class AppComponent {
     public readonly browserTabsQuery: BrowserTabsQuery,
     private readonly browserTabsService: BrowserTabsService,
     public readonly workspacesQuery: WorkspacesQuery,
-    private readonly workspacesService: WorkspacesService,
+    public readonly workspacesService: WorkspacesService,
   ) {
     this.workspacesService.get()
       .pipe(
@@ -30,7 +30,6 @@ export class AppComponent {
   }
 
   public onRemoveTab(id: string | number) {
-    debugger;
     this.browserTabsService.remove(id);
   }
 

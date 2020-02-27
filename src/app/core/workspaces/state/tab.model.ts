@@ -1,3 +1,5 @@
+import {uuid} from '../../uuid';
+
 export interface ApiTab {
   id: string;
   title: string;
@@ -20,7 +22,7 @@ export interface Tab {
 
 export function createTab(params: Partial<Tab | ApiTab>) {
   return {
-    id: params.id,
+    id: params.id || uuid(),
     title: params.title,
     description: params.description,
     icon: params.icon,
