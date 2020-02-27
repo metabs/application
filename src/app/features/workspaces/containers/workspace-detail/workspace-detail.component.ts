@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Collection, Tab, WorkspacesQuery, WorkspacesService} from '@app/core/workspaces';
+import {Collection, Tab, Workspace, WorkspacesQuery, WorkspacesService} from '@app/core/workspaces';
 import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
 
 @UntilDestroy()
@@ -14,7 +14,7 @@ export class WorkspaceDetailComponent implements OnInit {
 
   constructor(
     public readonly workspacesQuery: WorkspacesQuery,
-    private readonly workspacesService: WorkspacesService
+    public readonly workspacesService: WorkspacesService
   ) {
   }
 

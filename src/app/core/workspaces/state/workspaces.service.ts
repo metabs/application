@@ -30,11 +30,15 @@ export class WorkspacesService {
     this.workspacesStore.add(workspace);
   }
 
-  update(id, workspace: Partial<Workspace>) {
-    this.workspacesStore.update(id, workspace);
-  }
-
   remove(id: ID) {
     this.workspacesStore.remove(id);
+  }
+
+  removeTab(workspace: Workspace, collectionId: string, tabId: string) {
+    this.workspacesStore.update(workspace.id, {
+      collections: workspace.collections.map(c => {
+        return c.id === collectionId ? {...c, tabs: c.tabs.filter(t => t.id !== tabId)} : c;
+      })
+    });
   }
 }

@@ -9,6 +9,7 @@
         [title]="tab.title"
         [description]="tab.description"
         [image]="'https://github.githubassets.com/favicon.ico'"
+        (remove)="workspacesService.removeTab(workspace, collection.id, tab.id)"
       ></cmp-browser-tab>
     </cmp-browser-tab-list>
   </app-collection>

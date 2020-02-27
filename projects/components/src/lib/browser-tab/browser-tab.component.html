@@ -3,6 +3,6 @@
   <div class="cmp-browser-tab__title">{{title}}</div>
 </div>
 <div class="cmp-browser-tab__description" *ngIf="!isTypeMinimal">{{description || title}}</div>
-<cmp-button *ngIf="isTypeMinimal" type="mini-fab" (click)="remove.emit()">
+<cmp-button type="mini-fab" (click)="remove.emit()">
   <cmp-icon>close</cmp-icon>
 </cmp-button>
