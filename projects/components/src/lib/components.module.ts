@@ -9,10 +9,11 @@ import {BrowserTabComponent} from './browser-tab/browser-tab.component';
 import {BrowserTabListComponent} from './browser-tab-list/browser-tab-list.component';
 import {IconComponent} from './icon/icon.component';
 import {EditableComponent} from './editable/editable.component';
+import {FocusDirective} from './focus/focus.directive';
 
 
 @NgModule({
-  declarations: [ButtonComponent, BrowserTabComponent, BrowserTabListComponent, IconComponent, EditableComponent],
+  declarations: [ButtonComponent, BrowserTabComponent, BrowserTabListComponent, IconComponent, EditableComponent, FocusDirective],
   imports: [CommonModule, MatIconModule, MatRippleModule, ReactiveFormsModule],
   exports: [ButtonComponent, BrowserTabComponent, BrowserTabListComponent, IconComponent, EditableComponent]
 })
