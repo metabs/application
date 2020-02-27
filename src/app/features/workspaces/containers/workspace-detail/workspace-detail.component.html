@@ -2,7 +2,8 @@
   <app-collection
     *ngFor="let collection of workspace.collections; trackBy: trackById"
     [name]="collection.name"
-    (remove)="workspacesService.removeCollection(workspace, collection.id)">
+    (remove)="workspacesService.removeCollection(workspace, collection.id)"
+    (changeName)="onChangeName(workspace, collection.id, $event)">
     <cmp-browser-tab-list type="row">
       <cmp-browser-tab
         *ngFor="let tab of collection.tabs; trackBy: trackById"
@@ -14,4 +15,12 @@
       ></cmp-browser-tab>
     </cmp-browser-tab-list>
   </app-collection>
+
+  <cmp-button
+    color="primary"
+    type="fab"
+    class="workspace-detail__create-collection"
+    (click)="workspacesService.createCollection(workspace)">
+    <cmp-icon>add</cmp-icon>
+  </cmp-button>
 </ng-container>

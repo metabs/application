@@ -9,6 +9,7 @@ import {ChangeDetectionStrategy, Component, HostBinding, Input, ViewEncapsulatio
 })
 export class ButtonComponent {
   @Input() type: 'flat' | 'fab' | 'mini-fab' = 'flat';
+  @Input() color: 'primary' | 'transparent' = 'transparent';
 
   @HostBinding('class.cmp-button--flat') get isFlat() {
     return this.type === 'flat';
@@ -20,5 +21,13 @@ export class ButtonComponent {
 
   @HostBinding('class.cmp-button--mini-fab') get isMiniFab() {
     return this.type === 'mini-fab';
+  }
+
+  @HostBinding('class.cmp-button--primary') get isPrimaryColor() {
+    return this.color === 'primary';
+  }
+
+  @HostBinding('class.cmp-button--transparent') get isTransparentColor() {
+    return this.color === 'transparent';
   }
 }

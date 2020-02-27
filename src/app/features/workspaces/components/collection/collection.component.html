@@ -1,8 +1,9 @@
 <ng-container *ngIf="{hasTabs: hasTabs$ | async} as content">
   <div class="collection__container">
-    <div class="collection__trigger" (click)="content.hasTabs && toggleContent()">
-      <h2 class="collection__name">{{name}}</h2>
-      <cmp-button type="mini-fab" *ngIf="content.hasTabs">
+    <div class="collection__trigger">
+      <cmp-editable class="collection__name" [value]="name" (valueChange)="changeName.emit($event)"></cmp-editable>
+
+      <cmp-button type="mini-fab" *ngIf="content.hasTabs" (click)="content.hasTabs && toggleContent()">
         <cmp-icon>{{isOpenContent ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</cmp-icon>
       </cmp-button>
     </div>

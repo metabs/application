@@ -1,4 +1,10 @@
 app-workspace-detail {
   display: flex;
   flex-direction: column;
+
+  .workspace-detail {
+    &__create-collection {
+      margin: calc(var(--gap-lg) * 2) auto;
+    }
+  }
 }

@@ -39,3 +39,8 @@ cmp-button {
     }
   }
 }
+
+cmp-button.cmp-button--primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-0);
+}

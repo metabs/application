@@ -1,0 +1,22 @@
+cmp-editable {
+  display: inline-flex;
+
+  .cmp-editable__value {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  input {
+    border-radius: 1px;
+    border: 0;
+    font-size: inherit;
+    appearance: none;
+    padding: 0;
+    outline: none;
+    box-shadow: 0 0 0 5px var(--color-neutral-0), 0 0 0 6px var(--color-neutral-100);
+
+    &.ng-invalid.ng-touched {
+      box-shadow: 0 0 0 5px var(--color-neutral-0), 0 0 0 6px red;
+    }
+  }
+}

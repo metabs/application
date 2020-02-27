@@ -1,0 +1,7 @@
+<div class="cmp-editable__value" *ngIf="!isEditing" (dblclick)="enableEdit()">{{value}}</div>
+<input
+  type="text"
+  class="collection__name"
+  *ngIf="isEditing"
+  (blur)="disableEdit()"
+  [formControl]="control">

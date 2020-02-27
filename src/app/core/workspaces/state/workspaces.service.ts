@@ -6,6 +6,7 @@ import {ApiWorkspace, createWorkspace, Workspace} from './workspace.model';
 import {map} from 'rxjs/operators';
 import {from, of} from 'rxjs';
 import mock from '../workspaces.mock';
+import {createCollection} from './collection.model';
 
 @Injectable({providedIn: 'root'})
 export class WorkspacesService {
@@ -32,6 +33,20 @@ export class WorkspacesService {
 
   remove(id: ID) {
     this.workspacesStore.remove(id);
+  }
+
+  public createCollection(workspace) {
+    this.workspacesStore.update(workspace.id, {
+      collections: [...workspace.collections, createCollection({name: 'Untitled Collection'})]
+    });
+  }
+
+  public updateCollectionName(workspace: Workspace, collectionId: string, name: string) {
+    this.workspacesStore.update(workspace.id, {
+      collections: workspace.collections.map(c => {
+        return c.id === collectionId ? {...c, name} : c;
+      })
+    });
   }
 
   public removeCollection(workspace: Workspace, collectionId: string) {

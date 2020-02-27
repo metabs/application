@@ -29,4 +29,8 @@ export class WorkspaceDetailComponent implements OnInit {
   public trackById(index: number, item: Collection | Tab): string {
     return item.id;
   }
+
+  public onChangeName(workspace: Workspace, collectionId: string, newName: string) {
+    this.workspacesService.updateCollectionName(workspace, collectionId, newName);
+  }
 }

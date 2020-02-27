@@ -1,6 +1,6 @@
 import {
   AfterContentInit,
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   ContentChildren, EventEmitter,
   HostBinding,
@@ -12,6 +12,7 @@ import {BrowserTabComponent} from 'components';
 import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
 import {map} from 'rxjs/operators';
 import {BehaviorSubject} from 'rxjs';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 
 @UntilDestroy()
 @Component({
@@ -24,6 +25,7 @@ import {BehaviorSubject} from 'rxjs';
 export class CollectionComponent implements AfterContentInit {
   @Input() name: string;
   @Output() remove = new EventEmitter<void>();
+  @Output() changeName = new EventEmitter<string>();
   @ContentChildren(BrowserTabComponent, {descendants: true}) tabs: QueryList<BrowserTabComponent>;
 
   @HostBinding('class.app-collection--open') get getIsOpenContentClass() {
@@ -33,6 +35,9 @@ export class CollectionComponent implements AfterContentInit {
   public isOpenContent = true;
   private tabsLength$ = new BehaviorSubject(0);
   public hasTabs$ = this.tabsLength$.asObservable().pipe(map(length => length > 0));
+
+  constructor(private readonly cd: ChangeDetectorRef) {
+  }
 
   public ngAfterContentInit(): void {
     this.tabsLength$.next(this.tabs.length);
