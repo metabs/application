@@ -34,7 +34,13 @@ export class WorkspacesService {
     this.workspacesStore.remove(id);
   }
 
-  removeTab(workspace: Workspace, collectionId: string, tabId: string) {
+  public removeCollection(workspace: Workspace, collectionId: string) {
+    this.workspacesStore.update(workspace.id, {
+      collections: workspace.collections.filter(c => c.id !== collectionId)
+    });
+  }
+
+  public removeTab(workspace: Workspace, collectionId: string, tabId: string) {
     this.workspacesStore.update(workspace.id, {
       collections: workspace.collections.map(c => {
         return c.id === collectionId ? {...c, tabs: c.tabs.filter(t => t.id !== tabId)} : c;

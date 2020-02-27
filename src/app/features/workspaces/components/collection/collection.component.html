@@ -1,4 +1,20 @@
-<h2>{{name}}</h2>
-<div class="collection__content">
-  <ng-content></ng-content>
-</div>
+<ng-container *ngIf="{hasTabs: hasTabs$ | async} as content">
+  <div class="collection__container">
+    <div class="collection__trigger" (click)="content.hasTabs && toggleContent()">
+      <h2 class="collection__name">{{name}}</h2>
+      <cmp-button type="mini-fab" *ngIf="content.hasTabs">
+        <cmp-icon>{{isOpenContent ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</cmp-icon>
+      </cmp-button>
+    </div>
+
+    <div class="collection__actions">
+      <cmp-button type="mini-fab">
+        <cmp-icon (click)="remove.emit()">delete</cmp-icon>
+      </cmp-button>
+    </div>
+  </div>
+  <div class="collection__content" *ngIf="isOpenContent">
+    <ng-content></ng-content>
+  </div>
+  <div class="collection__empty" *ngIf="!content.hasTabs">This collection is empty. Drag tabs here.</div>
+</ng-container>

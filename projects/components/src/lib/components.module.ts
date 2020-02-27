@@ -12,7 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [ButtonComponent, BrowserTabComponent, BrowserTabListComponent, IconComponent],
   imports: [CommonModule, MatIconModule, MatRippleModule],
-  exports: [ButtonComponent, BrowserTabComponent, BrowserTabListComponent]
+  exports: [ButtonComponent, BrowserTabComponent, BrowserTabListComponent, IconComponent]
 })
 export class ComponentsModule {
 }

@@ -1,7 +1,8 @@
 <ng-container *ngIf="(workspacesQuery.selectWorkspaceByRouterParams$ | async) as workspace">
   <app-collection
     *ngFor="let collection of workspace.collections; trackBy: trackById"
-    [name]="collection.name">
+    [name]="collection.name"
+    (remove)="workspacesService.removeCollection(workspace, collection.id)">
     <cmp-browser-tab-list type="row">
       <cmp-browser-tab
         *ngFor="let tab of collection.tabs; trackBy: trackById"
