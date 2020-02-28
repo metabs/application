@@ -35,11 +35,9 @@ export class BrowserTabsService {
       });
       // @ts-ignore
       chrome.tabs.onUpdated.addListener((tabId: number, changeInfo: chrome.tabs.TabChangeInfo, tab: chrome.tabs.Tab) => {
-        if (tab.status === 'complete') {
-          this.ngZone.run(() => {
-            this.browserTabsStore.upsert(tabId, tab);
-          });
-        }
+        this.ngZone.run(() => {
+          this.browserTabsStore.upsert(tabId, tab);
+        });
       });
       // @ts-ignore
       chrome.tabs.onRemoved.addListener(id => {

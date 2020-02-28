@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run watch:application",
+    "start": "npm run build:components & npm run serve",
     "test": "ng test",
+    "package": "npm run build:components && npm run build:application",
     "serve": "ng serve --open",
     "build": "npm run build:components && ng build --output-hashing=none --aot --watch",
     "build:application": "ng build --output-hashing=none --aot --prod",
