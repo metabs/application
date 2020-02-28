@@ -1,20 +1,27 @@
 <ng-container *ngIf="(workspacesQuery.selectWorkspaceByRouterParams$ | async) as workspace">
-  <app-collection
-    *ngFor="let collection of workspace.collections; trackBy: trackById"
-    [name]="collection.name"
-    (remove)="workspacesService.removeCollection(workspace, collection.id)"
-    (changeName)="onChangeName(workspace, collection.id, $event)">
-    <cmp-browser-tab-list type="row">
-      <cmp-browser-tab
-        *ngFor="let tab of collection.tabs; trackBy: trackById"
-        type="summary"
-        [title]="tab.title"
-        [description]="tab.description"
-        [image]="'https://github.githubassets.com/favicon.ico'"
-        (remove)="workspacesService.removeTab(workspace, collection.id, tab.id)"
-      ></cmp-browser-tab>
-    </cmp-browser-tab-list>
-  </app-collection>
+  <div>
+    <app-collection
+      cdkDropList
+      [cdkDropListData]="collection.id"
+      (cdkDropListDropped)="onDropTab($event)"
+      *ngFor="let collection of workspace.collections; trackBy: trackById"
+      [name]="collection.name"
+      (remove)="workspacesService.removeCollection(workspace, collection.id)"
+      (changeName)="onChangeName(workspace, collection.id, $event)">
+      <cmp-browser-tab-list type="row">
+        <cmp-browser-tab
+          *ngFor="let tab of collection.tabs; trackBy: trackById"
+          type="summary"
+          cdkDrag
+          [cdkDragData]="tab.id"
+          [title]="tab.title"
+          [description]="tab.description"
+          [image]="'https://github.githubassets.com/favicon.ico'"
+          (remove)="workspacesService.removeTab(workspace, collection.id, tab.id)"
+        ></cmp-browser-tab>
+      </cmp-browser-tab-list>
+    </app-collection>
+  </div>
 
   <cmp-button
     color="primary"

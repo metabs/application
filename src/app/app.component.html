@@ -15,18 +15,25 @@
     <cmp-button>user</cmp-button>
   </section>
 </header>
-<main>
-  <router-outlet></router-outlet>
-</main>
 
-<aside *ngIf="(browserTabsQuery.selectAll() | async) as browserTabs">
-  <h3>Open Tabs</h3>
-  <cmp-browser-tab-list>
-    <cmp-browser-tab
-      *ngFor="let tab of browserTabs; trackBy: trackById"
-      [image]="tab.favIconUrl"
-      [title]="tab.title"
-      (remove)="onRemoveTab(tab.id)">
-    </cmp-browser-tab>
-  </cmp-browser-tab-list>
-</aside>
+<div cdkDropListGroup>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <aside *ngIf="(browserTabsQuery.selectAll() | async) as browserTabs">
+    <h3>Open Tabs</h3>
+    <cmp-browser-tab-list
+      cdkDropList
+      cdkDropListData="browser-tabs">
+      <cmp-browser-tab
+        *ngFor="let tab of browserTabs; trackBy: trackById"
+        cdkDrag
+        [cdkDragData]="tab.id"
+        [image]="tab.favIconUrl"
+        [title]="tab.title"
+        (remove)="onRemoveTab(tab.id)">
+      </cmp-browser-tab>
+    </cmp-browser-tab-list>
+  </aside>
+</div>

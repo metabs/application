@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Collection, Tab, Workspace, WorkspacesQuery, WorkspacesService} from '@app/core/workspaces';
 import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @UntilDestroy()
 @Component({
@@ -32,5 +33,16 @@ export class WorkspaceDetailComponent implements OnInit {
 
   public onChangeName(workspace: Workspace, collectionId: string, newName: string) {
     this.workspacesService.updateCollectionName(workspace, collectionId, newName);
+  }
+
+  public onDropTab(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 }
