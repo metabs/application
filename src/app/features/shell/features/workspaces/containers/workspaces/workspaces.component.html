@@ -1,0 +1,39 @@
+<header>
+  <section *ngIf="(workspacesQuery.selectAll() | async) as workspaces">
+    <nav>
+      <cmp-button
+        *ngFor="let workspace of workspaces"
+        [routerLink]="['./', workspace.id]"
+        routerLinkActive="nav__active"
+        [routerLinkActiveOptions]="{exact: true}"
+      >{{workspace.name}}
+      </cmp-button>
+      <cmp-button (click)="workspacesService.createWorkspace()">+</cmp-button>
+    </nav>
+  </section>
+  <section>
+    <cmp-button>user</cmp-button>
+  </section>
+</header>
+
+<div cdkDropListGroup>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <aside *ngIf="(browserTabsQuery.selectAll() | async) as browserTabs">
+    <h3>Open Tabs</h3>
+    <cmp-browser-tab-list
+      cdkDropList
+      cdkDropListData="browser-tabs">
+      <cmp-browser-tab
+        *ngFor="let tab of browserTabs; trackBy: trackById"
+        cdkDrag
+        [cdkDragData]="tab.id"
+        [image]="tab.favIconUrl"
+        [title]="tab.title"
+        (remove)="onRemoveTab(tab.id)">
+      </cmp-browser-tab>
+    </cmp-browser-tab-list>
+  </aside>
+</div>

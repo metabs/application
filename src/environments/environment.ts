@@ -2,12 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const baseUrl = 'https://jsonplaceholder.typicode.com';
+const origin = 'http://localhost';
 
 export const environment = {
   production: false,
   api: {
-    workspaces: `${baseUrl}/albums`,
+    customers: `${origin}/customers`,
+    workspaces: `${origin}/workspaces`,
   }
 };
 

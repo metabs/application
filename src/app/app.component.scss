@@ -2,46 +2,4 @@ app-root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: var(--header-size);
-
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: var(--header-size);
-    padding: 0 calc(var(--gap-lg) - var(--button-gap));
-    background-color: var(--color-neutral-0);
-    box-shadow: var(--header-shadow);
-
-    cmp-button {
-      --button-size: var(--header-size);
-      --button-radius: 0;
-      --button-text-transform: none;
-
-      &.nav__active {
-        box-shadow: inset 0 -2px 0 0 var(--color-primary-500);
-      }
-    }
-  }
-
-  main {
-    padding: var(--main-gap);
-    width: var(--main-width);
-  }
-
-  aside {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: var(--aside-width);
-    height: 100vh;
-    background-color: white;
-    padding: calc(var(--header-size) + var(--gap-md)) var(--gap-md) var(--gap-md);
-    box-shadow: var(--header-shadow);
-  }
 }

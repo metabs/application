@@ -4,10 +4,13 @@ import {Routes, RouterModule} from '@angular/router';
 const routes: Routes = [{
   path: '',
   pathMatch: 'full',
-  redirectTo: '/workspaces',
+  redirectTo: 'workspaces',
 }, {
-  path: 'workspaces',
-  loadChildren: () => import('./features/workspaces/workspaces.module').then(m => m.WorkspacesModule),
+  path: '',
+  loadChildren: () => import('./features/shell/shell.module').then(m => m.ShellModule),
+}, {
+  path: 'login',
+  loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule),
 }];
 
 @NgModule({

@@ -1,10 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {WorkspaceDetailComponent} from './containers';
+import {WorkspaceDetailComponent, WorkspacesComponent} from './containers';
 
 const routes: Routes = [{
-  path: ':workspaceId',
-  component: WorkspaceDetailComponent,
+  path: '',
+  component: WorkspacesComponent,
+  children: [{
+    path: ':workspaceId',
+    component: WorkspaceDetailComponent,
+  }]
 }];
 
 @NgModule({

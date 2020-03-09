@@ -1,0 +1,14 @@
+app-login {
+  padding: var(--main-gap);
+
+  &, & form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form {
+    cmp-button {
+      margin: var(--gap-xl) 0 0 auto;
+    }
+  }
+}

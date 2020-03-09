@@ -1,16 +1,18 @@
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from '@app/shared';
 
 import {WorkspacesRoutingModule} from './workspaces-routing.module';
-import {WorkspaceDetailComponent} from './containers';
+import {WorkspaceDetailComponent, WorkspacesComponent} from './containers';
 import {CollectionComponent} from './components';
 
 @NgModule({
-  declarations: [WorkspaceDetailComponent, CollectionComponent],
+  declarations: [WorkspaceDetailComponent, CollectionComponent, WorkspacesComponent],
   imports: [
-    ReactiveFormsModule,
     SharedModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     WorkspacesRoutingModule,
   ]
 })
