@@ -44,3 +44,9 @@ cmp-button.cmp-button--primary {
   background-color: var(--color-primary-500);
   color: var(--color-neutral-0);
 }
+
+cmp-button.cmp-button--disabled {
+  background-color: var(--color-neutral-300) !important;
+  opacity: .5;
+  pointer-events: none !important;
+}

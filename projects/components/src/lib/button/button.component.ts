@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, HostBinding, Input, ViewEncapsulation} from '@angular/core';
+import {coerceBooleanProperty} from '@angular/cdk/coercion';
 
 @Component({
   selector: 'cmp-button',
@@ -8,8 +9,18 @@ import {ChangeDetectionStrategy, Component, HostBinding, Input, ViewEncapsulatio
   encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {
+  private isDisabled: boolean;
+
   @Input() type: 'flat' | 'fab' | 'mini-fab' = 'flat';
   @Input() color: 'primary' | 'transparent' = 'transparent';
+
+  @Input() set disabled(value) {
+    this.isDisabled = coerceBooleanProperty(value);
+  }
+
+  get disabled() {
+    return this.isDisabled;
+  }
 
   @HostBinding('class.cmp-button--flat') get isFlat() {
     return this.type === 'flat';
@@ -29,5 +40,9 @@ export class ButtonComponent {
 
   @HostBinding('class.cmp-button--transparent') get isTransparentColor() {
     return this.color === 'transparent';
+  }
+
+  @HostBinding('class.cmp-button--disabled') get isDisabledButton() {
+    return this.disabled;
   }
 }
