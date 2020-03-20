@@ -1,0 +1,13 @@
+<label>
+  <span class="cmp-form-field__label">{{label}}</span>
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="onChange($event.target.value)"
+    (blur)="onTouched()">
+</label>
+<ul class="cmp-form-field__errors" *ngIf="hasErrors">
+  <li *ngFor="let error of ngControl.control.errors | keyvalue">{{error.key}}</li>
+</ul>
