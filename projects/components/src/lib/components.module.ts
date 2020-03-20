@@ -11,12 +11,35 @@ import {IconComponent} from './icon/icon.component';
 import {EditableComponent} from './editable/editable.component';
 import {FocusDirective} from './focus/focus.directive';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {FormFieldComponent} from './form-field/form-field.component';
 
 
 @NgModule({
-  declarations: [ButtonComponent, BrowserTabComponent, BrowserTabListComponent, IconComponent, EditableComponent, FocusDirective],
-  imports: [CommonModule, MatIconModule, MatRippleModule, ReactiveFormsModule, DragDropModule],
-  exports: [ButtonComponent, BrowserTabComponent, BrowserTabListComponent, IconComponent, EditableComponent, DragDropModule]
+  declarations: [
+    ButtonComponent,
+    BrowserTabComponent,
+    BrowserTabListComponent,
+    IconComponent,
+    EditableComponent,
+    FocusDirective,
+    FormFieldComponent,
+  ],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatRippleModule,
+    ReactiveFormsModule,
+    DragDropModule,
+  ],
+  exports: [
+    ButtonComponent,
+    BrowserTabComponent,
+    BrowserTabListComponent,
+    IconComponent,
+    EditableComponent,
+    DragDropModule,
+    FormFieldComponent,
+  ]
 })
 export class ComponentsModule {
 }
